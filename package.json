@@ -15,10 +15,14 @@
   "author": "iCrawl",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.1.0",
-    "opusscript": "0.0.3",
-    "simple-youtube-api": "^3.0.0",
-    "ytdl-core": "^0.16.0"
+    "discord.js": "^11.3.2",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "ms": "^2.1.1",
+    "node-gyp": "^3.6.2",
+    "node-opus": "^0.2.7",
+    "simple-youtube-api": "5.0.1",
+    "ytdl-core": "0.20.2"
   },
   "devDependencies": {
     "eslint": "^4.0.0",
