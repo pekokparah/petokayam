@@ -7,7 +7,7 @@ const gyp = require("node-gyp");
 
 const client = new Client({ disableEveryone: true });
 
-const youtube = new YouTube(process.env.GOOGLE_API_KEY);
+const youtube = new YouTube(process.env.YT_API);
 
 const queue = new Map();
 
