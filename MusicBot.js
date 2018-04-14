@@ -102,7 +102,7 @@ Please provide a value to select one of the search results ranging from 1-10.
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
-		if (args1[1] > 5) return message.reply("Your ear will bleeding!");
+		if (args[1] > 5) return msg.reply("Your ear will bleeding!");
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 		return msg.channel.send(`I set the volume to: **${args[1]}**`);
 	} else if (command === 'np') {
