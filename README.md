@@ -1,35 +1,29 @@
 # Music-Bot
-> Simple music bot with a full-blown queue system that is easy to understand
+> Cosmic BOT Music Command Part
+NOTE: <> Means required [] means optional.
 
-## Install
+## Commands :
+> play <Song Title / Song URL / Playlist URL>
 
-```bash
-npm i
-```
+> pause
 
-## Usage
+> resume
 
-Edit the config.js file:
+> volume [New Volume]
 
-```js
-exports.TOKEN = ''; // Your token here
+> stop
 
-exports.PREFIX = 'm!'; // Your preferred prefix here
+> skip
 
-exports.GOOGLE_API_KEY = ''; // Your youtube/google API key here
-```
+> np
 
-## Contributing
+> queue
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
 
-## Author
 
-**Music-Bot** © [iCrawl](https://github.com/iCrawl), Released under the [MIT](https://github.com/iCrawl/Music-Bot/blob/master/LICENSE) License.<br>
-Authored and maintained by iCrawl.
 
-> GitHub [@iCrawl](https://github.com/iCrawl) · Twitter [@iCrawlToGo](https://twitter.com/iCrawlToGo)
+<p align="center">
+  <a href="https://discordbots.org/bot/428186255398797321" >
+  <img src="https://discordbots.org/api/widget/434304339268337665.svg" alt="Discord Music Bot" />
+</a>
+</p>
