@@ -129,15 +129,15 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setDescription(`🔉The current volume is: \`${serverQueue.volume}\` `)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed1)
-			
+		
+		if (args[1] > 100) {
 				var embed2 = new Discord.RichEmbed()
                                 .setTitle("Volume 🔊")
                                 .setDescription(`🔇 Your ear will bleeding! ✅ use c.volume <1 - 100> .`)
 	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed2)
-		return
+                                return msg.channel.send(embed2)
+		}
 		serverQueue.volume = args[1];
-		if (args[1] > 100)
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
 				var embed = new Discord.RichEmbed()
                                 .setTitle("Volume 🔊")
