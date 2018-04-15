@@ -59,12 +59,12 @@ client.on('message', async msg => { // eslint-disable-line
 				try {
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
-					msg.channel.send('
-```__**Song selection:**__
+					msg.channel.send(`
+``__**Song selection:**__
 
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 
-Please provide a value to select one of the search results ranging from 1-10.```
+Please provide a value to select one of the search results ranging from 1-10.``
 					`);
 					// eslint-disable-next-line max-depth
 					try {
