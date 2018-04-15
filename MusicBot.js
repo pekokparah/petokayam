@@ -100,41 +100,13 @@ client.on('message', async msg => { // eslint-disable-line
 		msg.reply("```bot has been stopped !```");
 		return undefined;
 	} else if (command === 'volume') {
-		if (!msg.member.voiceChannel)
-				 var embed = new Discord.RichEmbed()
-                                .setTitle("Volume 🔊")
-                                .setDescription(`🆔 You are not in a voice channel.`)
-	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed)
-		
-		if (!serverQueue)
-				var embed = new Discord.RichEmbed()
-                                .setTitle("Volume 🔊")
-                                .setDescription(`🚫 The Not Playing.`)
-	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed)
-		
-		if (!args[1])
-				var embed = new Discord.RichEmbed()
-                                .setTitle("Volume 🔊")
-                                .setDescription(`🔉The current volume is: \`${serverQueue.volume}\` `)
-	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed)
-		
+		if (!msg.member.voiceChannel) return msg.channel.send('```You are not in a voice channel! Use 1 - 100.```');
+		if (!serverQueue) return msg.channel.send('There is nothing playing.');
+		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
-		if (args[1] > 100)
-				var embed = new Discord.RichEmbed()
-                                .setTitle("Volume 🔊")
-                                .setDescription(`🔇 Your ear will bleeding! ✅ use c.volume <1 - 100> .`)
-	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed)
-		
+		if (args[1] > 100) return msg.reply("```Your ear will bleeding! use 1 - 100 .```");
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
-				var embed = new Discord.RichEmbed()
-                                .setTitle("Volume 🔊")
-                                .setDescription(`I set the volume to: ${args[1]}`)
-	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed)
+		return msg.channel.send(`I set the volume to: ${args[1]}`);
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
 		                var embed = new Discord.RichEmbed()
