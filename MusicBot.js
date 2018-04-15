@@ -98,7 +98,7 @@ Please provide a value to select one of the search results ranging from 1-10.
 		serverQueue.connection.dispatcher.end('Stop command has been used!');
 		return undefined;
 	} else if (command === 'volume') {
-		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
+		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel! Use 1 - 5.');
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
@@ -110,13 +110,16 @@ Please provide a value to select one of the search results ranging from 1-10.
 		return msg.channel.send(`🎶 Now playing: **${serverQueue.songs[0].title}**`);
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return msg.channel.send(`
-__**Song queue:**__
+		return 
 
-${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
+let embed = new Discord.RichEmbed()
+.setTitle('Your Music')
+.addfield(${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')})
+.setColor("#9A2EFE")
+.message.channel.send({embed})
 
 **Now playing:** ${serverQueue.songs[0].title}
-		`);
+		
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
