@@ -90,14 +90,23 @@ client.on('message', async msg => { // eslint-disable-line
 	} else if (command === 'skip') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
-		serverQueue.connection.dispatcher.end('Skip command has been used!');
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`⏭ Skip command has been used!`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+				serverQueue.connection.dispatcher.end();
 		return undefined;
 	} else if (command === 'stop') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('Stop command has been used!');
-		msg.reply("```bot has been stopped !```");
+		serverQueue.connection.dispatcher.end('🔕 Stop command has been used!');
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`▶ bot has been stopped !`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 		return undefined;
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel)
