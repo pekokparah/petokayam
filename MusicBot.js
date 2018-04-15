@@ -91,7 +91,7 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
 			        var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music has been skipped !")
                                 .setDescription(`⏭ Skip command has been used!`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
@@ -103,7 +103,7 @@ client.on('message', async msg => { // eslint-disable-line
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('🔕 Stop command has been used!');
 			        var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music has been Stopped !")
                                 .setDescription(`▶ bot has been stopped !`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
@@ -147,7 +147,7 @@ client.on('message', async msg => { // eslint-disable-line
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
 		                var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music List:")
                                 .setDescription(`🎧 Now playing:`, `${serverQueue.songs[0].title}`, true)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
@@ -166,7 +166,7 @@ client.on('message', async msg => { // eslint-disable-line
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 		                var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music has been paused !")
                                 .setDescription(`⏸ Paused the music for you!`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
@@ -177,7 +177,7 @@ client.on('message', async msg => { // eslint-disable-line
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
 			        var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music has been resumed !")
                                 .setDescription(`▶ Resumed the music for you!`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
@@ -248,7 +248,7 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
 				 var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music Start:")
                                 .setDescription(`♏️ \`Start playing:\` **${song.title}**`)
 	                        .setColor("#9A2EFE")
                                 serverQueue.textChannel.send(embed)
