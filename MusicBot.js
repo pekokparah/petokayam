@@ -206,7 +206,7 @@ function play(guild, song) {
                                 .setTitle("Song Selection")
                                 .setDescription(`♏️ \`Start playing:\` **${song.title}**`)
 	                        .setColor("#9A2EFE")
-                                 msg.channel.send(embed)
+                                serverQueue.textChannel.send(embed)
 }
 
 client.login(process.env.BOT_TOKEN);
