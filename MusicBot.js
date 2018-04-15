@@ -105,7 +105,7 @@ this music is still Beta test by Alfian Verter!
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
-		if (args[1] > 5) return msg.reply("Your ear will bleeding!");
+		if (args[1] > 5) return msg.reply("Your ear will bleeding! user 1 - 5 .");
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 		return msg.channel.send(`I set the volume to: **${args[1]}**`);
 	} else if (command === 'np') {
