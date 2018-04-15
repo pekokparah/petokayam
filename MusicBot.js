@@ -97,6 +97,7 @@ msg.channel.send(embed)
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Stop command has been used!');
+		msg.reply("```bot has been stopped !```");
 		return undefined;
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('```You are not in a voice channel! Use 1 - 100.```');
@@ -105,10 +106,10 @@ msg.channel.send(embed)
 		serverQueue.volume = args[1];
 		if (args[1] > 100) return msg.reply("```Your ear will bleeding! use 1 - 100 .```");
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
-		return msg.channel.send(` \`\`\I set the volume to: ${args[1]}\`\`\` `);
+		return msg.channel.send(`I set the volume to: ${args[1]}`);
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return msg.channel.send(` \`\`\`🎶 Now playing: **${serverQueue.songs[0].title}**\`\`\` `);
+		return msg.channel.send(`🎶 Now playing: **${serverQueue.songs[0].title}**`);
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(`
