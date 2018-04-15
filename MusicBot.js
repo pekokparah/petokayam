@@ -114,11 +114,10 @@ Please provide a value to select one of the search results ranging from 1-10.
 
 let embed = new Discord.RichEmbed()
 .setTitle('Your Music')
-.addfield(${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')})
+.addfield(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
 .setColor("#9A2EFE")
+.setFooter(`**Now playing:** ${serverQueue.songs[0].title}`
 .message.channel.send({embed})
-
-**Now playing:** ${serverQueue.songs[0].title}
 		
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
