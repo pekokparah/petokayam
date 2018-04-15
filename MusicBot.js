@@ -111,7 +111,7 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');	
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Song Selection")
-                                .setDescription(`🎧 \`Now playing:\` **${serverQueue.songs[0].title}**`)
+                                .setDescription(`🎧 Now playing:`, `${serverQueue.songs[0].title}`, true)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
