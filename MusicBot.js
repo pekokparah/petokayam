@@ -145,19 +145,19 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 	} else if (command === 'np') {
-		if (!serverQueue)	       
+		if (!serverQueue) return msg.channel.send('`There is nothing playing.`');	       
 		                var embed = new Discord.RichEmbed()
                                 .setTitle("Music List:")
-                                .setDescription(`🎧 Now playing:`, `${serverQueue.songs[0].title}`, true)
+                                .setDescription(`🎧 Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
 	} else if (command === 'queue') {
-		if (!serverQueue)
+		if (!serverQueue)return msg.channel.send('`There is nothing playing.`');
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Queue")
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
-		                .setFooter(`**Now playing:`,`${serverQueue.songs[0].title}`, true)
+		                .setFooter(`Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
