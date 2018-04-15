@@ -59,14 +59,13 @@ client.on('message', async msg => { // eslint-disable-line
 				try {
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
-					
-let embed = new Discord.RichEmbed()
-.setTitle('Selec Music')
-.addfield(`${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}`)
-.setColor("#9A2EFE")
-.setFooter(`Please provide a value to select one of the search results ranging from 1-10.`)
-.message.channel.send({embed})
-									
+					msg.channel.send(`
+__**Song selection:**__
+
+${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
+
+Please provide a value to select one of the search results ranging from 1-10.
+					`);
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -111,15 +110,13 @@ let embed = new Discord.RichEmbed()
 		return msg.channel.send(`🎶 Now playing: **${serverQueue.songs[0].title}**`);
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return 
+		return msg.channel.send(`
+__**Song queue:**__
 
-let embed = new Discord.RichEmbed()
-.setTitle('Your Music')
-.addfield(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
-.setColor("#9A2EFE")
-.setFooter(`**Now playing:** ${serverQueue.songs[0].title}`)
-.message.channel.send({embed})
-		
+${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
+
+**Now playing:** ${serverQueue.songs[0].title}
+		`);
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
