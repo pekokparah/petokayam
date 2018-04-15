@@ -66,7 +66,7 @@ let embed = new Discord.RichEmbed()
 .setColor("#9A2EFE")
 .setFooter(`Please provide a value to select one of the search results ranging from 1-10.`)
 .message.channel.send({embed})
-				}					
+									
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
