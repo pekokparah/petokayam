@@ -105,7 +105,7 @@ msg.channel.send(embed)
 		serverQueue.volume = args[1];
 		if (args[1] > 100) return msg.reply("```Your ear will bleeding! use 1 - 100 .```");
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
-		return msg.channel.send(`I set the volume to: **${args[1]}**`);
+		return msg.channel.send(`\`\`\I set the volume to: ${args[1]}\`\`\``);
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(` \`\`\`🎶 Now playing: **${serverQueue.songs[0].title}**\`\`\` `);
@@ -151,7 +151,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			voiceChannel: voiceChannel,
 			connection: null,
 			songs: [],
-			volume: 5,
+			volume: 100,
 			playing: true
 		};
 		queue.set(msg.guild.id, queueConstruct);
@@ -194,7 +194,7 @@ function play(guild, song) {
 			play(guild, serverQueue.songs[0]);
 		})
 		.on('error', error => console.error(error));
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 }
