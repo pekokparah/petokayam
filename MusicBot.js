@@ -116,7 +116,7 @@ let embed = new Discord.RichEmbed()
 .setTitle('Your Music')
 .addfield(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
 .setColor("#9A2EFE")
-.setFooter(`**Now playing:** ${serverQueue.songs[0].title}`
+.setFooter(`**Now playing:** ${serverQueue.songs[0].title}`)
 .message.channel.send({embed})
 		
 	} else if (command === 'pause') {
