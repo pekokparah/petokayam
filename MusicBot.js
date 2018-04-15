@@ -99,12 +99,12 @@ msg.channel.send(embed)
 		serverQueue.connection.dispatcher.end('Stop command has been used!');
 		return undefined;
 	} else if (command === 'volume') {
-		if (!msg.member.voiceChannel) return msg.channel.send('```You are not in a voice channel! Use 1 - 5.```');
+		if (!msg.member.voiceChannel) return msg.channel.send('```You are not in a voice channel! Use 1 - 100.```');
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
-		if (args[1] > 5) return msg.reply("```Your ear will bleeding! use 1 - 5 .```");
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+		if (args[1] > 100) return msg.reply("```Your ear will bleeding! use 1 - 100 .```");
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
 		return msg.channel.send(`I set the volume to: **${args[1]}**`);
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
