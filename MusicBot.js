@@ -145,7 +145,7 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 	} else if (command === 'np') {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
+		if (!serverQueue)	       
 		                var embed = new Discord.RichEmbed()
                                 .setTitle("Music List:")
                                 .setDescription(`🎧 Now playing:`, `${serverQueue.songs[0].title}`, true)
@@ -153,7 +153,7 @@ client.on('message', async msg => { // eslint-disable-line
                                  msg.channel.send(embed)
 		
 	} else if (command === 'queue') {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
+		if (!serverQueue)
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Queue")
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
@@ -171,7 +171,6 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		}
-		return msg.channel.send('There is nothing playing.');
 	} else if (command === 'resume') {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
@@ -182,7 +181,6 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		}
-		return msg.channel.send('There is nothing playing.');
 	}
 
 	return undefined;
