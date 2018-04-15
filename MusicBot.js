@@ -59,7 +59,7 @@ client.on('message', async msg => { // eslint-disable-line
 				try {
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
-					msg.channel.send(` ``
+					msg.channel.send(` \`\`\`
 __Song selection:__
 
 ${videos.map(video2 => `${++index} - ${video2.title}`).join('\n')}
@@ -68,7 +68,7 @@ recovers music above 1 to 10
 
 this music is still Beta test by Alfian Verter!
 
-`` `);
+\`\`\` `);
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
