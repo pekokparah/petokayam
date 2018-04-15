@@ -90,14 +90,23 @@ client.on('message', async msg => { // eslint-disable-line
 	} else if (command === 'skip') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
-		serverQueue.connection.dispatcher.end('Skip command has been used!');
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Music has been skipped !")
+                                .setDescription(`⏭ Skip command has been used!`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+				serverQueue.connection.dispatcher.end();
 		return undefined;
 	} else if (command === 'stop') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('Stop command has been used!');
-		msg.reply("```bot has been stopped !```");
+		serverQueue.connection.dispatcher.end('🔕 Stop command has been used!');
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Music has been Stopped !")
+                                .setDescription(`▶ bot has been stopped !`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 		return undefined;
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel)
@@ -130,21 +139,25 @@ client.on('message', async msg => { // eslint-disable-line
                                  msg.channel.send(embed)
 		
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
-		return msg.channel.send(`I set the volume to: ${args[1]}`);
+				var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`I set the volume to: ${args[1]}`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 	} else if (command === 'np') {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
+		if (!serverQueue) return msg.channel.send('`There is nothing playing.`');	       
 		                var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
-                                .setDescription(`🎧 Now playing:`, `${serverQueue.songs[0].title}`, true)
+                                .setTitle("Music List:")
+                                .setDescription(`🎧 Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
 	} else if (command === 'queue') {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
+		if (!serverQueue)return msg.channel.send('`There is nothing playing.`');
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Queue")
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
-		                .setFooter(`**Now playing:`,`${serverQueue.songs[0].title}`, true)
+		                .setFooter(`Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
@@ -153,23 +166,21 @@ client.on('message', async msg => { // eslint-disable-line
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 		                var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music has been paused !")
                                 .setDescription(`⏸ Paused the music for you!`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		}
-		return msg.channel.send('There is nothing playing.');
 	} else if (command === 'resume') {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
 			        var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music has been resumed !")
                                 .setDescription(`▶ Resumed the music for you!`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		}
-		return msg.channel.send('There is nothing playing.');
 	}
 
 	return undefined;
@@ -235,7 +246,7 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
 				 var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Music Start:")
                                 .setDescription(`♏️ \`Start playing:\` **${song.title}**`)
 	                        .setColor("#9A2EFE")
                                 serverQueue.textChannel.send(embed)
