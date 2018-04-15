@@ -2,7 +2,7 @@
 > Cosmic BOT Music Command Part
 
 
-*NOTE: <> Means required [] means optional.
+*NOTE: <> Means required [] means optional.*
 
 ## Commands :
 > play <Song Title / Song URL / Playlist URL>
