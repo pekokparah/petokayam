@@ -61,8 +61,8 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
-                                .setDescription(`${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}`)
+                                .setTitle("🎺 Song Selection 🎻")
+                                .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("#9A2EFE")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
@@ -111,19 +111,20 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');	
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Song Selection")
-                                .setDescription(`🎧 Now playing: ${serverQueue.songs[0].title}`)
+                                .setDescription(`🎧 \`Now playing:\` **${serverQueue.songs[0].title}**`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return msg.channel.send(`
-__**Song queue:**__
-
-${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
-
-**Now playing:** ${serverQueue.songs[0].title}
-		`);
+		return 
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
+		                 .setDescription(`**Now playing:** ${serverQueue.songs[0].title}`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
@@ -202,7 +203,11 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
-	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
+				 var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`♏️ \`Start playing:\` **${song.title}**`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 }
 
 client.login(process.env.BOT_TOKEN);
