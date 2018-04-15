@@ -130,7 +130,11 @@ client.on('message', async msg => { // eslint-disable-line
                                  msg.channel.send(embed)
 		
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
-		return msg.channel.send(`I set the volume to: ${args[1]}`);
+				var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`I set the volume to: ${args[1]}`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
 		                var embed = new Discord.RichEmbed()
