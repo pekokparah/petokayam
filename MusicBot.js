@@ -137,7 +137,7 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setDescription(`🔇 Your ear will bleeding! ✅ use c.volume <1 - 100> .`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
-		return
+		
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
 				var embed = new Discord.RichEmbed()
                                 .setTitle("Volume 🔊")
