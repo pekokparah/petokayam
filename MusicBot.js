@@ -61,11 +61,12 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-  .setTitle("Song Selection")
-  .setDescription(`${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}`)
-  .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
+                                .setTitle("🎺 Song Selection 🎻")
+                                .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
+	                        .setColor("#9A2EFE")
+                                .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
-msg.channel.send(embed)
+                                 msg.channel.send(embed)
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -96,37 +97,81 @@ msg.channel.send(embed)
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Stop command has been used!');
+		msg.reply("```bot has been stopped !```");
 		return undefined;
 	} else if (command === 'volume') {
-		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel! Use 1 - 5.');
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
+		if (!msg.member.voiceChannel)
+				 var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`🆔 You are not in a voice channel.`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
+		if (!serverQueue)
+				var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`🚫 The Not Playing.`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
+		if (!args[1])
+				var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`🔉The current volume is: \`${serverQueue.volume}\` `)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
 		serverQueue.volume = args[1];
-		if (args[1] > 5) return msg.reply("Your ear will bleeding! user 1 - 5 .");
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-		return msg.channel.send(`I set the volume to: **${args[1]}**`);
+		if (args[1] > 100)
+				var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`🔇 Your ear will bleeding! ✅ use c.volume <1 - 100> .`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
+				var embed = new Discord.RichEmbed()
+                                .setTitle("Volume 🔊")
+                                .setDescription(`I set the volume to: ${args[1]}`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 	} else if (command === 'np') {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return msg.channel.send(`🎶 Now playing: **${serverQueue.songs[0].title}**`);
+		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
+		                var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`🎧 Now playing:`, `${serverQueue.songs[0].title}`, true)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return msg.channel.send(`
-__**Song queue:**__
-${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
-**Now playing:** ${serverQueue.songs[0].title}
-		`);
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Queue")
+                                .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
+		                .setFooter(`**Now playing:`,`${serverQueue.songs[0].title}`, true)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
+		
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('⏸ Paused the music for you!');
+		                var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`⏸ Paused the music for you!`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 		}
 		return msg.channel.send('There is nothing playing.');
 	} else if (command === 'resume') {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
-			return msg.channel.send('▶ Resumed the music for you!');
+			        var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`▶ Resumed the music for you!`)
+	                        .setColor("#9A2EFE")
+                                 msg.channel.send(embed)
 		}
 		return msg.channel.send('There is nothing playing.');
 	}
@@ -148,7 +193,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			voiceChannel: voiceChannel,
 			connection: null,
 			songs: [],
-			volume: 5,
+			volume: 100,
 			playing: true
 		};
 		queue.set(msg.guild.id, queueConstruct);
@@ -191,9 +236,13 @@ function play(guild, song) {
 			play(guild, serverQueue.songs[0]);
 		})
 		.on('error', error => console.error(error));
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
-	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
+				 var embed = new Discord.RichEmbed()
+                                .setTitle("Song Selection")
+                                .setDescription(`♏️ \`Start playing:\` **${song.title}**`)
+	                        .setColor("#9A2EFE")
+                                serverQueue.textChannel.send(embed)
 }
 
 client.login(process.env.BOT_TOKEN);
