@@ -61,7 +61,7 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-                                .setTitle("🎺 Song Selection 🎻")
+                                .setTitle("🎺 Song Selection 🎻 --> BETA TEST BY: ALFIAN VERTER !")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("#9A2EFE")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
@@ -120,7 +120,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Queue")
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
-		                .setFooter(`**Now playing: ${serverQueue.songs[0].title}`)
+		                .setFooter(`**Now playing:** ${serverQueue.songs[0].title}`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
