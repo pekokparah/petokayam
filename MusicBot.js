@@ -61,9 +61,9 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-                                .setTitle("🎺 Song Selection 🎻 --> BETA TEST BY: ALFIAN VERTER !")
+                                .setTitle("🎺 Song Selection 🎻 \`--> BETA TEST BY: ALFIAN VERTER !\` ")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
-	                        .setColor("#9A2EFE")
+	                        .setColor("#00FFBF")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
                                  msg.channel.send(embed)
@@ -112,7 +112,7 @@ client.on('message', async msg => { // eslint-disable-line
 		                var embed = new Discord.RichEmbed()
                                 .setTitle("Song Selection")
                                 .setDescription(`🎧 Now playing: ${serverQueue.songs[0].title}`)
-	                        .setColor("#9A2EFE")
+	                        .setColor("#00FFBF")
                                  msg.channel.send(embed)
 		
 	} else if (command === 'queue') {
@@ -121,7 +121,7 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setTitle("Queue")
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
 		                .setFooter(`**Now playing:** ${serverQueue.songs[0].title}`)
-	                        .setColor("#9A2EFE")
+	                        .setColor("#00FFBF")
                                  msg.channel.send(embed)
 		
 	} else if (command === 'pause') {
@@ -131,7 +131,7 @@ client.on('message', async msg => { // eslint-disable-line
 		                var embed = new Discord.RichEmbed()
                                 .setTitle("Song Selection")
                                 .setDescription(`⏸ Paused the music for you!`)
-	                        .setColor("#9A2EFE")
+	                        .setColor("#00FFBF")
                                  msg.channel.send(embed)
 		}
 		return msg.channel.send('There is nothing playing.');
@@ -142,7 +142,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Song Selection")
                                 .setDescription(`▶ Resumed the music for you!`)
-	                        .setColor("#9A2EFE")
+	                        .setColor("#00FFBF")
                                  msg.channel.send(embed)
 		}
 		return msg.channel.send('There is nothing playing.');
@@ -213,7 +213,7 @@ function play(guild, song) {
 				 var embed = new Discord.RichEmbed()
                                 .setTitle("Song Selection")
                                 .setDescription(`♏️ \`Start playing:\` **${song.title}**`)
-	                        .setColor("#9A2EFE")
+	                        .setColor("#00FFBF")
                                 serverQueue.textChannel.send(embed)
 }
 
