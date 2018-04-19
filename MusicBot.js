@@ -120,7 +120,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        var embed = new Discord.RichEmbed()
                                 .setTitle("Queue")
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
-		                .setFooter(`**Now playing:`,`${serverQueue.songs[0].title}`, true)
+		                .setFooter(`**Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("#9A2EFE")
                                  msg.channel.send(embed)
 		
