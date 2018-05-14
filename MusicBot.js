@@ -67,6 +67,7 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
+				.addField('©BOT-OFFICIAL-RAINBOW | By: Alfian Verter | 2018')
 
                                  msg.channel.send(embed)
 					// eslint-disable-next-line max-depth
@@ -116,10 +117,11 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-                                .setTitle("🎺 Song Selection 🎻 \`\` ")
+                                .setTitle("🎺 Song Selection 🎻")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
+				.addField('©BOT-OFFICIAL-RAINBOW | By: Alfian Verter | 2018')
 
                                  msg.channel.send(embed)
 					// eslint-disable-next-line max-depth
