@@ -66,7 +66,6 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setTitle("🎺 Song Selection 🎻 \`\` ")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
-				.addField("©BOT-OFFICIAL-RAINBOW | By: Alfian Verter | 2018")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
                                  msg.channel.send(embed)
@@ -120,7 +119,6 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setTitle("🎺 Song Selection 🎻")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
-				.addField("©BOT-OFFICIAL-RAINBOW | By: Alfian Verter | 2018")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
                                  msg.channel.send(embed)
