@@ -6,6 +6,7 @@ const opus = require("node-opus");
 const gyp = require("node-gyp");
 const Discord = require("discord.js");
 
+
 const client = new Client({ disableEveryone: true });
 
 const youtube = new YouTube(process.env.YT_API);
