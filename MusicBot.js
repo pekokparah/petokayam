@@ -166,10 +166,10 @@ client.on('message', async msg => { // eslint-disable-line
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
 		                var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Song list")
                                 .setDescription(`🎧 Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed).then(msg => {msg.delete(10000)});
+                                 msg.channel.send(embed)
 		
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
@@ -178,7 +178,7 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
 		                .setFooter(`**Now playing:** ${serverQueue.songs[0].title}`)
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed).then(msg => {msg.delete(10000)});
+                                 msg.channel.send(embed)
 		
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
@@ -265,12 +265,13 @@ function play(guild, song) {
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
-
+	
 				 var embed = new Discord.RichEmbed()
-                                .setTitle("Song Selection")
+                                .setTitle("Playing")
                                 .setDescription(`🎵 \`Start playing:\` **${song.title}**`)
 	                        .setColor("RANDOM")
-                                serverQueue.textChannel.send(embed).then(msg => {msg.delete(10000)});
+                                serverQueue.textChannel.send(embed)
+                  
 }
 
 client.login(process.env.BOT_TOKEN);
