@@ -64,12 +64,12 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-                                .setTitle("🎺 Song Selection 🎻 \`\` ")
+                                .setTitle("🎺 Song Selection 🎻 ")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed).then(msg => {msg.delete(10000)});
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -122,7 +122,7 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed).then(msg => {msg.delete(10000)});
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -169,7 +169,7 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setTitle("Song Selection")
                                 .setDescription(`🎧 Now playing: ${serverQueue.songs[0].title}`)
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed).then(msg => {msg.delete(10000)});
 		
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
@@ -178,7 +178,7 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}`)
 		                .setFooter(`**Now playing:** ${serverQueue.songs[0].title}`)
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed).then(msg => {msg.delete(10000)});
 		
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
@@ -270,7 +270,7 @@ function play(guild, song) {
                                 .setTitle("Song Selection")
                                 .setDescription(`🎵 \`Start playing:\` **${song.title}**`)
 	                        .setColor("RANDOM")
-                                serverQueue.textChannel.send(embed)
+                                serverQueue.textChannel.send(embed).then(msg => {msg.delete(10000)});
 }
 
 client.login(process.env.BOT_TOKEN);
