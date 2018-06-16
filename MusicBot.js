@@ -200,7 +200,6 @@ client.on('message', async msg => { // eslint-disable-line
 
   msg.channel.send(sEmbed);
 
-}
 
 
        } else if (command === 'pause') {
