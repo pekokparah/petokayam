@@ -155,29 +155,6 @@ client.on('message', async msg => { // eslint-disable-line
 		serverQueue.connection.dispatcher.end('Stop command has been used!');
 		msg.reply("**bot has been stopped !**");
 		return undefined;
-	} else if (command === 'prefix') {
-	  if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("🚫 **| You don't have `MANAGE_GUILD` perms.**");
-  if(!args[0]) return msg.channel.send("Please specify something!")
-
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-
-  prefixes[msg.guild.id] = {
-    prefixes: args[0]
-  };
-
-  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
-    if (err) console.log(err)
-  });
-
-  let sEmbed = new Discord.RichEmbed()
-  .setColor("#FF9900")
-  .setTitle("Prefix Customization")
-  .setThumbnail(bot.user.displayAvatarURL)
-  .setColor("RANDOM")
-  .addField(`Set to`, `\`${args[0]}\``);
-
-  msg.channel.send(sEmbed);
-	
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('**You are not in a voice channel! Use 1 - 100.**');
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
