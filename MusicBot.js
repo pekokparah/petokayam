@@ -4,6 +4,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const opus = require("node-opus");
 const gyp = require("node-gyp");
+const fs = require("fs");
 const Discord = require("discord.js");
 
 
