@@ -27,8 +27,6 @@ client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(prefix)) return undefined;
 	
-	Client.user.setActivity({Type: 'STREAMING'});  
-
 	const args = msg.content.split(' ');
 	const searchString = args.slice(1).join(' ');
 	const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
@@ -180,7 +178,32 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("RANDOM")
                                  msg.channel.send(embed)
 		
-	} else if (command === 'pause') {
+	} else if (command === 'prefix') {
+		  if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("🚫 **| You don't have `MANAGE_GUILD` perms.**");
+  if(!args[0]) return msg.channel.send("Please specify something!")
+
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+
+  prefixes[msg.guild.id] = {
+    prefixes: args[0]
+  };
+
+  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
+    if (err) console.log(err)
+  });
+
+  let sEmbed = new Discord.RichEmbed()
+  .setColor("#FF9900")
+  .setTitle("Prefix Customization")
+  .setColor("RANDOM")
+  .addField(`Set to`, `\`${args[0]}\``);
+
+  msg.channel.send(sEmbed);
+
+}
+
+
+       } else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
