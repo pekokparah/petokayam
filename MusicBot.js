@@ -179,7 +179,7 @@ client.on('message', async msg => { // eslint-disable-line
 	                        .setColor("RANDOM")
                                  msg.channel.send(embed)
 		
-	} else if (command === 'prefix') {
+	} else if (command === 'prefixsss') {
 		  if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("🚫 **| You don't have `MANAGE_GUILD` perms.**");
   if(!args[0]) return msg.channel.send("Please specify something!")
 
