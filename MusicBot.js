@@ -168,19 +168,20 @@ client.on('message', async msg => { // eslint-disable-line
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('**You are not in a voice channel! Use 1 - 100.**');
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		if (!args[1]) return 
+		if (!args[1]) 
 		                var embed = new Discord.RichEmbed()
                                 .setTitle("🎛 Volume 🎛")
                                 .setDescription(`The current volume is: **${serverQueue.volume}**`)
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed);
+
 		serverQueue.volume = args[1];
-		if (args[1] > 100) return
+		if (args[1] > 100)
 		                var embed = new Discord.RichEmbed()
                                 .setTitle("🎛 Volume 🎛")
                                 .setDescription("**Your ear will bleeding! use 1 - 100 .**")
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed);
 
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
 		return 
@@ -188,7 +189,8 @@ client.on('message', async msg => { // eslint-disable-line
                                 .setTitle("🎛 Volume 🎛")
                                 .setDescription(`I set the volume to: ${args[1]}`)
 	                        .setColor("RANDOM")
-                                 msg.channel.send(embed)
+                                 msg.channel.send(embed);
+
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
 		                var embed = new Discord.RichEmbed()
