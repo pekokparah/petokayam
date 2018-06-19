@@ -166,30 +166,21 @@ client.on('message', async msg => { // eslint-disable-line
 		msg.reply("**bot has been stopped !**");
 		return undefined;
 	} else if (command === 'volume') {
-		if (!msg.member.voiceChannel) return msg.channel.send('**You are not in a voice channel! Use 1 - 100.**');
+		if (!msg.member.voiceChannel) return msg.channel.send({embed : {
+      description: ` You are not in a voice channel! Use 1 - 100. `
+    }})
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		if (!args[1]) 
-		                var embed = new Discord.RichEmbed()
-                                .setTitle("🎛 Volume 🎛")
-                                .setDescription(`The current volume is: **${serverQueue.volume}**`)
-	                        .setColor("RANDOM")
-                                 msg.channel.send(embed);
-
+		if (!args[1]) return msg.channel.send({embed : {
+      description: ` The current volume is: **${serverQueue.volume}** `
+    }})
 		serverQueue.volume = args[1];
-		if (args[1] > 100)
-		                var embed = new Discord.RichEmbed()
-                                .setTitle("🎛 Volume 🎛")
-                                .setDescription("**Your ear will bleeding! use 1 - 100 .**")
-	                        .setColor("RANDOM")
-                                 msg.channel.send(embed);
-
+		if (args[1] > 100) return msg.channel.send({embed : {
+      description: ` **Your ear will bleeding! use 1 - 100 .** `
+    }})
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
-		return 
-		                var embed = new Discord.RichEmbed()
-                                .setTitle("🎛 Volume 🎛")
-                                .setDescription(`I set the volume to: ${args[1]}`)
-	                        .setColor("RANDOM")
-                                 msg.channel.send(embed);
+		return msg.channel.send({embed : {
+      description: ` I set the volume to: ${args[1]} `
+    }})
 
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');		       
