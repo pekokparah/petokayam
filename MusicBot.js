@@ -288,14 +288,11 @@ function play(guild, song) {
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
-	const song = {
-        channelurl: `https://www.youtube.com/channel/${video.channel.id}`,
-}
+
 				 var embed = new Discord.RichEmbed()
                                 .setTitle("Playing")
                                 .setDescription(`🎧 \`Start playing:\` **${song.title}**`)
 				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
-				.addField(`UploadBy:`,`${song}`)
 	                        .setColor("RANDOM")
                                 serverQueue.textChannel.send(embed)
                   
