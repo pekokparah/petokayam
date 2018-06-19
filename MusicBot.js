@@ -68,7 +68,7 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					var embed = new Discord.RichEmbed()
-                                .setTitle("🎺 Song Selection 🎻 ")
+                                .setTitle(" 🎶 Song Selection 🎤")
                                 .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
