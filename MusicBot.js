@@ -167,7 +167,7 @@ client.on('message', async msg => { // eslint-disable-line
 		return undefined;
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send({embed : {
-					title: `🎚 Volume 🎚`,
+					title: `⚠ Volume ⚠`,
       description: `🚫 You are not in a voice channel! Use 1 - 100. `
     }})
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
@@ -182,8 +182,8 @@ client.on('message', async msg => { // eslint-disable-line
     }})
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100);
 		return msg.channel.send({embed : {
-			title: `🎚 Volume 🎚`,
-      description: ` Yagami set the volume to: **${args[1]}** `
+			title: `🎛 Volume 🎛`,
+      description: ` **Yagami** set the volume to: **${args[1]}** `
     }})
 
 	} else if (command === 'np') {
