@@ -69,7 +69,7 @@ client.on('message', async msg => { // eslint-disable-line
 					let index = 0;
 					var embed = new Discord.RichEmbed()
                                 .setTitle(" 🎶 Song Selection 🎤")
-                                .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
+                                .setDescription(`${videos.map(video2 => `**[${++index}]** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
@@ -128,7 +128,7 @@ client.on('message', async msg => { // eslint-disable-line
 					let index = 0;
 					var embed = new Discord.RichEmbed()
                                 .setTitle(" 🎶 Song Selection 🎤")
-                                .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
+                                .setDescription(`${videos.map(video2 => `**[${++index}]** \`${video2.title}\` `).join('\n')}`)
 	                        .setColor("RANDOM")
                                 .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
@@ -315,7 +315,7 @@ function play(guild, song) {
 
 				 var embed = new Discord.RichEmbed()
                                 .setTitle("💠 Yagami Music 💠")
-                                .setDescription(`🎧 \`Start playing:\` **${song.title}**`)
+                                .setDescription(`🎧 \`Start playing:\`\n **${song.title}**`)
 				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
 	                        .setColor("RANDOM")
                                 serverQueue.textChannel.send(embed)
