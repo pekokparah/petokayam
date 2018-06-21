@@ -314,14 +314,14 @@ function play(guild, song) {
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
-
+    if(song.durationh == 0 && song.durationm == 0 && song.durations !== 0) {
 				 var embed = new Discord.RichEmbed()
                                 .setTitle("💠 Yagami Music 💠")
                                 .setDescription(`🎧 \`Start playing:\`\n **${song.title}**(${durations} Seconds)`)
 				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
 	                        .setColor("RANDOM")
                                 serverQueue.textChannel.send(embed)
-                  
+    }
 }
 
 client.login(process.env.BOT_TOKEN);
