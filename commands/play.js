@@ -44,7 +44,7 @@ const voiceChannel = message.member.voiceChannel;
           
           const embed = new Discord.RichEmbed()
           .setTitle(":musical_note: Song Selection :musical_note:")
-          .setDescription(videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n'))
+          .setDescription(`${videos.map(video2 => `**[${++index}]** \`${video2.title}\` `).join('\n')}`)
           .setColor(color)
           .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
           
