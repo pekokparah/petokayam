@@ -12,7 +12,7 @@ music.on('message', async message => {
     let cmd = args.shift().toLowerCase();
     let sender = message.author;
 
-    if (message.content === `<@${bot.user.id}>`) {
+    if (message.content === `<@${music.user.id}>`) {
                 message.react('👌');
         message.channel.send({embed : {
       description: `Hi <@${message.author.id}>, my prefix is \`${prefix}\``
