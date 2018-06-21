@@ -17,7 +17,6 @@ music.on('message', async message => {
         message.channel.send({embed : {
       description: `Hi <@${message.author.id}>, my prefix is \`${prefix}\``
     }})
-    }
 
     if (!msg.startsWith(prefix)) return;
     if (sender.bot) return;
