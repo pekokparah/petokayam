@@ -10,7 +10,7 @@
             alt="follow on Twitter"></a>
 </p>
 
-**Masami** is bot that use [Discord.js](https://discord.js.org/#/) as the libs. Masami Music is
+**YAGAMI** is bot that use [Discord.js](https://discord.js.org/#/) as the libs. Masami Music is
 
 ### List Commands
 > how to know the prefix ? Just mention the bot @masami and you will get the prefix.
@@ -28,6 +28,3 @@
  </ul>
 
 <br />
-<a target="_blank" href="https://discordbots.org/bot/423306939854749697">
-  <img src="https://discordbots.org/api/widget/423306939854749697.svg?usernamecolor=2c2f33&topcolor=ffafd3&middlecolor=e3afff&datacolor=afecff&highlightcolor=956dff&labelcolor=ffafaf" alt="Discord Music Bot">
-</a>
