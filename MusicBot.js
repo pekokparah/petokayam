@@ -257,6 +257,7 @@ client.on('message', async msg => { // eslint-disable-line
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
 	const serverQueue = queue.get(msg.guild.id);
 	console.log(video);
+	
 	const song = {
 		id: video.id,
 		title: Util.escapeMarkdown(video.title),
@@ -302,7 +303,8 @@ function play(guild, song) {
 		return;
 	}
 	console.log(serverQueue.songs);
-
+ let durations = song.durations - 1
+  var secondslength = Math.log(durations) * Math.LOG10E + 1 | 0;
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on('end', reason => {
 			if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
@@ -315,7 +317,7 @@ function play(guild, song) {
 
 				 var embed = new Discord.RichEmbed()
                                 .setTitle("💠 Yagami Music 💠")
-                                .setDescription(`🎧 \`Start playing:\`\n **${song.title}**`)
+                                .setDescription(`🎧 \`Start playing:\`\n **${song.title}**(${durations} Seconds)`)
 				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
 	                        .setColor("RANDOM")
                                 serverQueue.textChannel.send(embed)
