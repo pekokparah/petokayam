@@ -295,6 +295,9 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 }
 
 function play(guild, song) {
+	    let durations = song.durations - 1
+  var secondslength = Math.log(durations) * Math.LOG10E + 1 | 0;
+  var mlength = Math.log(song.durationm) * Math.LOG10E + 1 | 0;
 	const serverQueue = queue.get(guild.id);
 
 	if (!song) {
@@ -303,9 +306,6 @@ function play(guild, song) {
 		return;
 	}
 	console.log(serverQueue.songs);
-    let durations = song.durations - 1
-  var secondslength = Math.log(durations) * Math.LOG10E + 1 | 0;
-  var mlength = Math.log(song.durationm) * Math.LOG10E + 1 | 0;
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on('end', reason => {
 			if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
@@ -322,7 +322,6 @@ function play(guild, song) {
 				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
 	                        .setColor("RANDOM")
                                 serverQueue.textChannel.send(embed)
-    }
 }
 
 client.login(process.env.BOT_TOKEN);
