@@ -15,7 +15,7 @@ music.on('message', async message => {
     if (message.content === `<@${music.user.id}>`) {
                 message.react('👌');
         message.channel.send({embed : {
-      description: `Hi <@${message.author.id}>, my prefix is \`${prefix}\``
+      description: `Hi <@${message.author.id}>,` + ` my prefix is \`${prefix}\``
     }})
 
     if (!msg.startsWith(prefix)) return;
