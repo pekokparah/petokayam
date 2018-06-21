@@ -10,6 +10,7 @@ music.on('message', async message => {
     let msg = message.content.toLowerCase();
     let args = message.content.slice(prefix.length).trim().split(" ");
     let cmd = args.shift().toLowerCase();
+    let sender = message.author;
 
     if (msg == `<@${music.user.id}>` || msg == `<@!${music.user.id}>`) {
         message.reply(`My prefix is ${prefix}`);
