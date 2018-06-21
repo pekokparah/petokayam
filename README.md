@@ -1,4 +1,4 @@
-<h1 align="center">Masami</h1>
+<h1 align="center">YAGAMI</h1>
 
 <p align="center">
   <a href="https://discord.io/masamibot-official">
