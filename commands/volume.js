@@ -19,8 +19,8 @@ exports.run = async(music, message, args, color, queue) => {
 		if (!serverQueue) return message.channel.send('There is nothing playing.');
 		if (!args1[1]) return message.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args1[1];
-    if (args1[1] > 5) return message.reply("Your ear will bleeding!");
-        serverQueue.connection.dispatcher.setVolumeLogarithmic(args1[1] / 5);
+    if (args1[1] > 100) return message.reply("Your ear will bleeding!");
+        serverQueue.connection.dispatcher.setVolumeLogarithmic(args1[1] / 100);
         
         let vEmbed = new Discord.RichEmbed()
         .setDescription(`I set the volume to: **${args1[1]}**`)
@@ -43,7 +43,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
       connection: null,
       skippers: [],
       songs: [],
-      volume: 5,
+      volume: 100,
       playing: true
     };
     queue.set(message.guild.id, queueConstruct);
@@ -88,7 +88,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
             }, 250);
         })
         .on('error', error => console.error(error));
-    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
     serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 }
