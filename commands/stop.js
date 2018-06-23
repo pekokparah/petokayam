@@ -19,7 +19,11 @@ exports.run = async(music, message, args, color,  queue) => {
     if (!serverQueue) return message.channel.send("There isn't anything for me to stop for you");
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end('Stop command has been used!');
-    message.channel.send(":stop_button: Music has been stopped!");
+    message.channel.send({embed: new Discord.RichEmbed()
+                    .setAuthor(message.author.tag,message.author.avatarURL)
+                    .setDescription(`The player has been stopped.`)
+                    .setColor('RANDOM')
+                   })
     return undefined; 
 
     // Time for the functions
