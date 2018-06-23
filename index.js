@@ -4,9 +4,6 @@ music.commands = new Discord.Collection();
 const {color} = require('./config.json');
 const queue = new Map();
 
-	music.on('ready', () => {
-    bot.user.setStatus("idle")
-    });
 
 music.on('message', async message => {
 
@@ -32,5 +29,6 @@ music.on('message', async message => {
 music.login(process.env.TOKEN);
 
 music.on('ready', async () => {
+	    music.user.setStatus("idle")
     console.log(`${music.user.username} is online!`);
 });
