@@ -4,6 +4,10 @@ music.commands = new Discord.Collection();
 const {color} = require('./config.json');
 const queue = new Map();
 
+	music.on('ready', () => {
+    bot.user.setStatus("idle")
+    });
+
 music.on('message', async message => {
 
     let prefix = '^';
