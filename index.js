@@ -7,7 +7,7 @@ const queue = new Map();
 
 music.on('message', async message => {
 
-    let prefix = '^';
+    let prefix = 'n!';
     let msg = message.content.toLowerCase();
     let args = message.content.slice(prefix.length).trim().split(" ");
     let cmd = args.shift().toLowerCase();
