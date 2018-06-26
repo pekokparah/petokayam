@@ -5,6 +5,8 @@ const {color} = require('./config.json');
 const queue = new Map();
 
 
+
+
 music.on('message', async message => {
 
     let prefix = 'n!';
