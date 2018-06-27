@@ -48,6 +48,7 @@ const voiceChannel = message.member.voiceChannel;
           .setColor(color)
           .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
           
+          message.reaction("💿")
           let msgtoDelete = await message.channel.send({embed: embed});
           // eslint-disable-next-line max-depth
           try {
