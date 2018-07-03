@@ -84,11 +84,15 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
   console.log(video);
   const song = {
     id: video.id,
-    title: video.title,
-    url: `https://www.youtube.com/watch?v=${video.id}`,
-    durationh: video.duration.hours,
-    durationm: video.duration.minutes,
-    durations: video.duration.seconds,
+     title: Discord.Util.escapeMarkdown(video.title),
+     url: `https://www.youtube.com/watch?v=${video.id}`,
+     uploadedby: video.channel.title,
+     channelurl: `https://www.youtube.com/channel/${video.channel.id}`,
+     durationh: video.duration.hours,
+     durationm: video.duration.minutes,
+     durations: video.duration.seconds,
+     request: message.author,
+     channels: voiceChannel.name,
   };
   if (!serverQueue) {
     const queueConstruct = { 
@@ -158,7 +162,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(secondslength == 1 || secondslength == 0) {
       if(mlength !== 1 || mlength !== 0) {
         const embed2 = new Discord.RichEmbed()
-        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+        .setDescription('Title', `__[${song.title}](${song.url})__`, true)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
