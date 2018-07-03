@@ -162,7 +162,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(secondslength == 1 || secondslength == 0) {
       if(mlength !== 1 || mlength !== 0) {
         const embed2 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
@@ -175,7 +175,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
       if(mlength == 1 || mlength == 0) {
         if(secondslength !== 1 || secondslength !== 0) {
           const embed3 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
@@ -188,7 +188,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
       if(mlength !== 1 || mlength !== 0) {
         if(secondslength !== 1 || secondslength !== 0) {
           const embed4 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
@@ -200,7 +200,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(song.durationh == 0 && song.durationm !== 0) {
       if(secondslength == 1 || secondslength == 0) {
           const embed5 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
@@ -212,7 +212,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(song.durationh == 0 && song.durationm !== 0) {
       if(secondslength !== 1 || secondslength !== 0) {
         const embed6 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
@@ -223,7 +223,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     }}
     if(song.durationh == 0 && song.durationm == 0 && song.durations !== 0) {
         const embed7 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
@@ -233,7 +233,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
       return serverQueue.textChannel.send(embed7);
     } else {
         const embed8 = new Discord.RichEmbed()
-        .setDescription(`**Music:** \n${song.title} \n**Duration** \n(${durations} Seconds)`)
+        .setDescription(`**Music:** \n${song.title} \n**Link** \n${song.url}`)
          .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
