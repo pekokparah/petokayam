@@ -158,8 +158,10 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(secondslength == 1 || secondslength == 0) {
       if(mlength !== 1 || mlength !== 0) {
         const embed2 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing:\n **${song.title}** (${song.durationh}:${song.durationm}:0${durations})`)
-        				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
         .setColor(color);
 
@@ -169,8 +171,10 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
       if(mlength == 1 || mlength == 0) {
         if(secondslength !== 1 || secondslength !== 0) {
           const embed3 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing:\n **${song.title}** (${song.durationh}:0${song.durationm}:${durations})`)
-          				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
         .setColor(color);
 
@@ -180,8 +184,10 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
       if(mlength !== 1 || mlength !== 0) {
         if(secondslength !== 1 || secondslength !== 0) {
           const embed4 = new Discord.RichEmbed()
-          .setDescription(`🎶 Now playing:\n **${song.title}** (${song.durationh}:${song.durationm}:${durations})`)
-          				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
           .setColor(color);
 
@@ -190,8 +196,10 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(song.durationh == 0 && song.durationm !== 0) {
       if(secondslength == 1 || secondslength == 0) {
           const embed5 = new Discord.RichEmbed()
-          .setDescription(`🎶 Now playing:\n **${song.title}** (${song.durationm}:0${durations})`)
-          				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
           .setColor(color);
 
@@ -200,8 +208,10 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     if(song.durationh == 0 && song.durationm !== 0) {
       if(secondslength !== 1 || secondslength !== 0) {
         const embed6 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing:\n **${song.title}** (${song.durationm}:${durations})`)
-        				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
         .setColor(color);
 
@@ -209,16 +219,20 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     }}
     if(song.durationh == 0 && song.durationm == 0 && song.durations !== 0) {
         const embed7 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing:\n **${song.title}** (${durations} Seconds)`)
-        				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
         .setColor(color);
 
       return serverQueue.textChannel.send(embed7);
     } else {
         const embed8 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing: **${song.title}**`)
-        				.setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+        .setTitle('Title', `__[${song.title}](${song.url})__`, true)
+         .addField("Uploaded 🎬", `[${song.uploadedby}](${song.channelurl})`, true)
+        .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
+         .addField("Voice Channel 🎧", `${song.channels}`, true)
 
         .setColor(color);
 
