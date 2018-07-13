@@ -9,7 +9,7 @@ const queue = new Map();
 
 music.on('message', async message => {
 
-    let prefix = 'ig.';
+    let prefix = 'b.';
     let msg = message.content.toLowerCase();
     let args = message.content.slice(prefix.length).trim().split(" ");
     let cmd = args.shift().toLowerCase();
