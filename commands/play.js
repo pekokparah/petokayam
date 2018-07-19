@@ -45,7 +45,7 @@ const voiceChannel = message.member.voiceChannel;
           const embed = new Discord.RichEmbed()
           .setTitle(":musical_note: Song Selection :musical_note:")
           .setDescription(`${videos.map(video2 => `**[${++index}]** \`${video2.title}\` `).join('\n')}`)
-          .setColor('#00faff')
+.setColor("#ec0000")
           .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
           
           message.react("💿")
@@ -62,7 +62,7 @@ const voiceChannel = message.member.voiceChannel;
             console.error(err);
             const noPick = new Discord.RichEmbed()
             .setDescription("No or invalid value entered, cancelling video selection.")
-            .setColor('#00faff')
+.setColor("#ec0000")
             message.channel.send({embed: noPick});
             msgtoDelete.delete()
             return;
@@ -167,7 +167,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-        .setColor('#00faff');
+.setColor("#ec0000");
 
       return serverQueue.textChannel.send(embed2);
     }}};
@@ -180,7 +180,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-        .setColor('#00faff');
+.setColor("#ec0000");
 
         return serverQueue.textChannel.send(embed3);
     }}}
@@ -193,7 +193,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-          .setColor('#00faff');
+.setColor("#ec0000");
 
         return serverQueue.textChannel.send(embed4);
     }}}
@@ -205,7 +205,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-          .setColor('#00faff');
+.setColor("#ec0000");
 
         return serverQueue.textChannel.send(embed5);
     }}
@@ -217,7 +217,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-        .setColor('#00faff');
+.setColor("#ec0000");
 
         return serverQueue.textChannel.send(embed6);
     }}
@@ -228,7 +228,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-        .setColor('#00faff');
+.setColor("#ec0000");
 
       return serverQueue.textChannel.send(embed7);
     } else {
@@ -238,7 +238,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
          .addField("Voice Channel 🎧", `${song.channels}`, true)
 
-        .setColor('#00faff');
+.setColor("#ec0000");
 
       return serverQueue.textChannel.send(embed8);
     }
