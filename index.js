@@ -31,15 +31,12 @@ music.on('message', async message => {
 music.login(process.env.TOKEN);
 
 music.on("ready", async () => {
-    console.log(`Logged in as : ${bot.user.tag}`);
-    console.log(`${bot.user.username} is ready!`)
+    console.log(`Logged in as : ${music.user.tag}`);
+    console.log(`${music.user.username} is ready!`)
                 
     function randomStatus() {
         let status = [`MUSIC | >play`, `WELCOMER | >welcomeimg`, 'RAINBOW | >rainbow on',]
           let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/verterid"});
     }; setInterval(randomStatus, 20000)
-    setInterval(() => {
-        
-  }, 1800000);
 });
