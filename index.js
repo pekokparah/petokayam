@@ -37,6 +37,6 @@ music.on("ready", async () => {
     function randomStatus() {
         let status = [`MUSIC | >play`, `WELCOMER | >welcomeimg`, 'RAINBOW | >rainbow on',]
           let rstatus = Math.floor(Math.random() * status.length);
-        bot.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/verterid"});
+        music.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/verterid"});
     }; setInterval(randomStatus, 20000)
 });
