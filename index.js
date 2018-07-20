@@ -30,11 +30,16 @@ music.on('message', async message => {
 
 music.login(process.env.TOKEN);
 
-music.on('ready', async () => {
-    console.log(`${music.user.username} is online!`);
-        function randomStatus() {
-        let status = [`MUSIC BOT`, `WELCOMER BOT`, 'RAINBOW BOT',]
+bot.on("ready", async () => {
+    console.log(`Logged in as : ${bot.user.tag}`);
+    console.log(`${bot.user.username} is ready!`)
+                
+    function randomStatus() {
+        let status = [`Windy Lagi Oprasi Aku :3`, `Member Kita: ${bot.users.size.toLocaleString()}`, 'discord.io/MANIAC',]
           let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/verterid"});
     }; setInterval(randomStatus, 20000)
+    setInterval(() => {
+        
+  }, 1800000);
 });
