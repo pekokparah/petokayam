@@ -30,12 +30,12 @@ music.on('message', async message => {
 
 music.login(process.env.TOKEN);
 
-bot.on("ready", async () => {
+music.on("ready", async () => {
     console.log(`Logged in as : ${bot.user.tag}`);
     console.log(`${bot.user.username} is ready!`)
                 
     function randomStatus() {
-        let status = [`Windy Lagi Oprasi Aku :3`, `Member Kita: ${bot.users.size.toLocaleString()}`, 'discord.io/MANIAC',]
+        let status = [`MUSIC | >play`, `WELCOMER | >welcomeimg`, 'RAINBOW | >rainbow on',]
           let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/verterid"});
     }; setInterval(randomStatus, 20000)
