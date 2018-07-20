@@ -32,4 +32,9 @@ music.login(process.env.TOKEN);
 
 music.on('ready', async () => {
     console.log(`${music.user.username} is online!`);
+        function randomStatus() {
+        let status = [`MUSIC BOT`, `WELCOMER BOT`, 'RAINBOW BOT',]
+          let rstatus = Math.floor(Math.random() * status.length);
+        bot.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/verterid"});
+    }; setInterval(randomStatus, 20000)
 });
